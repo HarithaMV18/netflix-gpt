@@ -1,9 +1,10 @@
 import React from 'react'
+import Header from './Header'
 
 const Browse = () => {
   return (
-    <div>
-      Browse
+    <div className='relative bg-black w-full h-full'>
+<Header/>
     </div>
   )
 }
