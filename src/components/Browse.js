@@ -1,12 +1,22 @@
-import React from 'react'
-import Header from './Header'
+import React from "react";
+import Header from "./Header";
+import useFetchMovies from "../customHooks/useFetchMovies";
+
+import MainContainer from "./MainContainer";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
-  return (
-    <div className='relative bg-black w-full h-full'>
-<Header/>
-    </div>
-  )
-}
+  //calling custom hook for movie list
+  useFetchMovies()
+  
+  const moviedata = useSelector((store) => store.movies?.nowPlayingMovies);
 
-export default Browse
+  return (
+    <div className="relative  bg-black">
+      <Header />
+ <MainContainer  moviedata={moviedata}/>
+    </div>
+  );
+};
+
+export default Browse;
