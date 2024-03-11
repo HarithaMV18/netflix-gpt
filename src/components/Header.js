@@ -42,7 +42,7 @@ const Header = () => {
       return ()=>unsubscribe()
     },[])
   return (
-    <div className=" absolute flex w-full h-16 justify-between px-2  z-50 bg-gradient-to-r from-black ">
+    <div className=" absolute flex w-full h-16 justify-between px-2  z-50 bg-gradient-to-r from-black max-[580px]:h-10">
       <img
         src={HEADER_LOGO}
         alt="logo"
