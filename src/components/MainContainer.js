@@ -7,9 +7,9 @@ const MainContainer = ({moviedata}) => {
  
     // const randomMovie = Math.floor(Math.random() * 20);
    
-    if(!moviedata[10]) return
+    if(!moviedata[4]) return
  
-    const { id, original_title, overview } = moviedata[10];
+    const { id, original_title, overview } = moviedata[4];
   
 
     return (

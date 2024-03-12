@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { APIKEY } from "../utils/constents";
+import { addMovieBannerTrailerKey } from "../reduxUtils/movieSlice";
 import { addMovieTrailerKey } from "../reduxUtils/movieSlice";
-const useFetchTrailerMovies = (vId) => {
+const useFetchTrailerMovies = (vId,type) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
- 
+ if (vId===null) return
     try {
       const fetchVideoData = async () => {
         const response = await fetch(
@@ -21,7 +22,8 @@ const useFetchTrailerMovies = (vId) => {
 
         const trailerId = filteredVideos?filteredVideos:data?.results[0];
 
-        dispatch(addMovieTrailerKey(trailerId));
+        if (type==="banner")dispatch(addMovieBannerTrailerKey(trailerId));
+        if (type==="popup")dispatch(addMovieTrailerKey(trailerId));
       };
 
       fetchVideoData();

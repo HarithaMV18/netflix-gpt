@@ -7,8 +7,8 @@ import useFetchTrailerMovies from "../customHooks/useFetchTrailerMovies";
 const VideoContainer = ({ vId }) => {
   //calling custom hook for movie trailer
 
-  useFetchTrailerMovies(vId);
-  const movieTrailer = useSelector((store) => store.movies?.movieTrailer);
+  useFetchTrailerMovies(vId,"banner");
+  const movieTrailer = useSelector((store) => store.movies?.movieBannerTrailer);
 if(!movieTrailer) return
   return (
     <div className=" w-screen ">

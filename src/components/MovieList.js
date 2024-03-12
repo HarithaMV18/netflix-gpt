@@ -4,16 +4,17 @@ import MovieRowData from "./MovieRowData";
 const MovieList = ({ title, moviedata }) => {
   return (
     moviedata.length > 0 && (
-      <div className=" text-white px-4  ">
-        <h1 className="py-2">{title}</h1>
+      <div className=" text-white ">
+        <h1 className="py-2 px-4">{title}</h1>
         <div className=" flex  overflow-x-scroll no-scrollbar ">
-          <div className="flex gap-3">
+          <div className="flex gap-3 py-3 px-4">
             {moviedata.map((items) => {
              
               return (
                 <MovieRowData
                   path={items.poster_path}
                   title={items.title}
+                  vId={items.id}
                   key={items.id}
                 />
               );
