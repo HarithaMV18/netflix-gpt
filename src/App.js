@@ -7,6 +7,7 @@ import LoginContainer from "./components/LoginContainer";
 
 
 
+
 function App() {
 
   const appRouter = createBrowserRouter([
@@ -27,6 +28,7 @@ function App() {
       path: "/signup",
       element: <LoginContainer />,
     },
+ 
   ]);
 
   return (

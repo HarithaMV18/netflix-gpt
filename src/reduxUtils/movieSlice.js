@@ -5,11 +5,17 @@ const movieSlice = createSlice({
   initialState: {
     nowPlayingMovies: {},
     popularMovies: {},
-    topRatedMovies:{},
-    upcomingMovies:{},
+    topRatedMovies: {},
+    upcomingMovies: {},
+    actionMovies: {},
+    adventureMovies: {},
+    familyMovies: {},
+    comedyMovies: {},
+    scienceFictionMovies: {},
+    animationMovies: {},
+    warMovies: {},
     movieBannerTrailer: {},
-    movieTrailer:{}
-
+    movieTrailer: {},
   },
   reducers: {
     addNowPlayingMovies: (state, action) => {
@@ -18,11 +24,32 @@ const movieSlice = createSlice({
     addPopularMovies: (state, action) => {
       state.popularMovies = action.payload;
     },
-    addTopRatedMovies:(state,action)=>{
-state.topRatedMovies=action.payload
+    addTopRatedMovies: (state, action) => {
+      state.topRatedMovies = action.payload;
     },
-    addUpcomingMovies:(state,action)=>{
-state.upcomingMovies=action.payload
+    addUpcomingMovies: (state, action) => {
+      state.upcomingMovies = action.payload;
+    },
+    addActionMovies: (state, action) => {
+      state.actionMovies = action.payload;
+    },
+    addAdventureMovies: (state, action) => {
+      state.adventureMovies = action.payload;
+    },
+    addFamilyMovies: (state, action) => {
+      state.familyMovies = action.payload;
+    },
+    addComedyMovies: (state, action) => {
+      state.comedyMovies = action.payload;
+    },
+    addScienceFictionMovies: (state, action) => {
+      state.scienceFictionMovies = action.payload;
+    },
+    addAnimationMovies: (state, action) => {
+      state.animationMovies = action.payload;
+    },
+    addWarMovies: (state, action) => {
+      state.warMovies = action.payload;
     },
     addMovieBannerTrailerKey: (state, action) => {
       state.movieBannerTrailer = action.payload;
@@ -32,5 +59,20 @@ state.upcomingMovies=action.payload
     },
   },
 });
-export const { addNowPlayingMovies, addMovieBannerTrailerKey,addMovieTrailerKey,addPopularMovies,addTopRatedMovies,addUpcomingMovies } = movieSlice.actions;
+export const {
+  addNowPlayingMovies,
+  addActionMovies,
+  addAdventureMovies,
+  addMovieBannerTrailerKey,
+  addMovieTrailerKey,
+  addPopularMovies,
+  addTopRatedMovies,
+  addUpcomingMovies,
+  addFamilyMovies,
+  addComedyMovies,
+  addScienceFictionMovies,
+  addAnimationMovies,
+  addWarMovies
+
+} = movieSlice.actions;
 export default movieSlice.reducer;
