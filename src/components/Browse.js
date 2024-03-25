@@ -8,6 +8,8 @@ import movieCategory from "../utils/movieCategory";
 import MovieList from "./MovieList";
 
 import Search from "./Search";
+
+
 const Browse = () => {
   //calling custom hook for movie list
 
@@ -18,13 +20,14 @@ const Browse = () => {
   const searchEnable = useSelector((store) => store.search.searchToggle);
 
   return (
-    <div className="relative w-full  bg-black">
+    <div className="relative w-full   bg-black">
       <Header />
       {!searchEnable ? (
-        <>
+       <>
           <MainContainer moviedata={moviedata?.nowPlayingMovies} />
-          <div className="  relative z-[60]   md:-top-32 lg:-top-52">
-            <MovieList
+          <div className="  relative z-[60]   md:-top-32 lg:-top-52 ">
+            
+             <MovieList
               title={"Now Playing"}
               moviedata={moviedata?.nowPlayingMovies}
             />
@@ -54,12 +57,15 @@ const Browse = () => {
               title={"Animation"}
               moviedata={moviedata?.animationMovies}
             />
-            <MovieList title={"War"} moviedata={moviedata?.warMovies} />
+            <MovieList title={"War"} moviedata={moviedata?.warMovies} /> 
+          
           </div>
         </>
       ) : (
         <Search />
       )}
+   
+      
     </div>
   );
 };

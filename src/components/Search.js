@@ -29,7 +29,7 @@ const Search = () => {
     };
     //GPT API call
 const searchMoviesGpt=async()=>{
-  setSearchGptEnable(true)
+  
   const results = await openai.chat.completions.create({
     messages: [
       {
@@ -43,7 +43,7 @@ const searchMoviesGpt=async()=>{
   });
 
   if (results?.choices[0]?.message?.content) {
-    console.log(results?.choices[0])
+   
     if(results?.choices[0]?.message?.content.toLowerCase()==="nullvalue") return dispatch(addSearchResults({getGptResults:null,searchResults:null}))
 
     const gptSearchMovieList =
@@ -61,22 +61,23 @@ const searchMoviesGpt=async()=>{
   } else {
     setError("oops, we haven't got that. Try searching for  movies...");
   }
+  setSearchGptEnable(true)
 
 }
-  
-
   return (
     <div className="bg-black w-full h-screen text-white pt-12 ">
       <div className="py-5 ">
-        <form onSubmit={(e) => e.preventDefault()} className="w-fit m-auto">
+        <form onSubmit={(e) => e.preventDefault()} className=" max-[340px]:w-[80vw] w-64 md:w-fit m-auto  ">
           <input
             type="text"
-            placeholder="search genres...."
+            placeholder="search genres or movies ...."
+            // max-[340px]:w-[80vw]
+            // max-[340px]:w-[80vw]
             ref={movieName}
-            className="mr-3 w-[40vw] px-2 py-1 rounded text-black text-sm"
+            className=" overflow-hidden block w-full md:inline-block  m-auto  md:w-[40vw] px-2 py-1 rounded text-black text-sm sm:m-auto"
           />
           <button
-            className="bg-red-700 px-2 pb-1  rounded text-sm w-20"
+            className="bg-red-700 px-2  pb-1 block m-auto md:inline-block my-2 md:mx-2 md:my-0 rounded text-sm w-20 "
             onClick={searchMoviesGpt}
           >
             search

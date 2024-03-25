@@ -7,7 +7,8 @@ const useFetchTrailerMovies = (vId,type) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-//  if (vId===null) return
+ if (vId===null) return
+
     try {
      
       const fetchVideoData = async () => {
@@ -16,8 +17,8 @@ const useFetchTrailerMovies = (vId,type) => {
         );
 
         const data = await response.json();
-      console.log(data)
-        if(data.results.length===0) return "Trailer not present"
+    
+        // if(data.results.length===0) return "Trailer not present"
         const filteredVideos = data?.results?.filter(
           (item) =>
             item?.type === "Trailer" 
@@ -26,8 +27,8 @@ const useFetchTrailerMovies = (vId,type) => {
 
         const trailerId = filteredVideos?filteredVideos:data?.results[0];
 
-        if (type==="banner")dispatch(addMovieBannerTrailerKey(trailerId));
-        if (type==="popup")dispatch(addMovieTrailerKey(trailerId));
+        if (type==="banner")dispatch(addMovieBannerTrailerKey(trailerId?trailerId:"Trailer not present"));
+        if (type==="popup")dispatch(addMovieTrailerKey(trailerId?trailerId:"Trailer not present"));
         // return true
       };
 

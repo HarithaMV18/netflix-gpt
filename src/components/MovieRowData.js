@@ -4,31 +4,32 @@ import PopUpTrailer from "./PopUpTrailer";
 import { useDispatch, useSelector } from "react-redux";
 import useFetchTrailerMovies from "../customHooks/useFetchTrailerMovies";
 import { addMovieTrailerKey } from "../reduxUtils/movieSlice";
+
 const MovieRowData = ({ path, title, vId }) => {
   const [popUp, setPopUp] = useState(false);
-  // useFetchTrailerMovies("popup",vId)
-  // const trailer=useSelector((store)=>store?.movies?.movieTrailer)
-  // console.log(trailer)
-  const dispatch=useDispatch()
-  const handleClick=()=>{
+
+  const dispatch = useDispatch();
+  const handleClick = () => {
     setPopUp(!popUp);
-    
-  }
+  };
   const displayPopUp = () => {
-    dispatch(addMovieTrailerKey({}))
+    dispatch(addMovieTrailerKey({}));
     setPopUp(!popUp);
- 
-   
   };
 
   return (
-    path &&  <div
-      className="w-24 lg:w-36   cursor-pointer rounded-md overflow-hidden"
-     
-    >
-      <img src={MOVIEIMG + path} alt={title} className=" w-full hover:scale-[1.1] transition-all"  onClick={() => handleClick()}/>
-      {popUp && <PopUpTrailer displayPopUp={displayPopUp} vId={vId} />}
-    </div>
+    path && (
+      <div className="w-24 lg:w-36   cursor-pointer rounded-md overflow-hidden ">
+        <img
+          src={MOVIEIMG + path}
+          alt={title}
+          className=" w-full hover:scale-[1.1] transition-all"
+          onClick={() => handleClick()}
+        />
+      
+        {popUp && <PopUpTrailer displayPopUp={displayPopUp} vId={vId} />}
+      </div>
+    )
   );
 };
 

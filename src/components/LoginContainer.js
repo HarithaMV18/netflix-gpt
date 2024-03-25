@@ -80,11 +80,6 @@ const LoginContainer = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
-          // const user = userCredential.user;
-          
-          // const {uid,displayName,email}=auth.currentUser
-          // dispatch(addUser({uid:uid,displayName:displayName,email:email}))
       
         })
         .catch((error) => {
